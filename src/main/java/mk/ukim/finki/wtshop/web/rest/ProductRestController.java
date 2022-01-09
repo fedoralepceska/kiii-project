@@ -10,6 +10,6 @@ public class ProductRestController {
 
 	@GetMapping
 	public String findAll() {
-		return "PRODUCTS";
+		return "PRODUCTS PAGE";
 	}
 }
