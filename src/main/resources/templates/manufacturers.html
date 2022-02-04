@@ -1,0 +1,11 @@
+<section class="jumbotron text-center" xmlns:th="http://www.thymeleaf.org">
+    <div class="container">
+        <h1 class="jumbotron-heading">Manufacturers Page</h1>
+        
+        <ul>
+        	<li th:each="manufacturer: ${manufacturers}">
+        		<th:block th:text="${manufacturer.name}"/>
+        	</li>
+        </ul>
+    </div>
+</section>
