@@ -1,0 +1,29 @@
+<thblock xmlns:th="http://www.thymeleaf.org">
+	<div class="container">
+        <div class="row">
+            <div class="col-md-5">
+            	<form th:action="@{'/manufacturers/{id}' (id=${manufacturer?.id})}" method="POST">
+            		<div class="form-group">
+            			<label for="e1">Name</label>
+            			<input id="e1" 
+            				class="form-control"
+            				type="text" 
+            				name="name" 
+            				th:value="${manufacturer?.name}"
+            				required>
+            		</div>
+            		<div class="form-group">
+            			<label for="e2">Address</label>
+            			<input id="e2" 
+            				type="text" 
+            				class="form-control"
+            				name="address" 
+            				th:value="${manufacturer?.address}"
+            				required>
+            		</div>
+            		<button id="submit" type="submit">Submit</button>
+            	</form>
+            </div>
+          </div>
+        </div>
+</thblock>

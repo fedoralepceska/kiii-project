@@ -2,10 +2,50 @@
     <div class="container">
         <h1 class="jumbotron-heading">Manufacturers Page</h1>
         
-        <ul>
-        	<li th:each="manufacturer: ${manufacturers}">
-        		<th:block th:text="${manufacturer.name}"/>
-        	</li>
-        </ul>
+        <div class="container mb-4">
+        	<div class="row">
+            	<div class="col-12" th:if="${manufacturers.size() > 0}">
+                	<div class="table-responsive">
+                    	<table class="table table-striped">
+                        	<thead>
+                        		<tr>
+                            		<th scope="col">Manufacturer Name</th>
+                            		<th scope="col">Address</th>
+                            		<th>Actions</th>
+                        		</tr>
+                        	</thead>
+                        	<tbody>
+                        		<tr th:each="man : ${manufacturers}">
+                            		<td th:text="${man.getName()}"></td>
+                            		<td th:text="${man.getAddress()}"></td>
+                            		<td>
+                                    	<form th:action="@{'/manufacturers/delete/{id}' (id=${man.getId()})}"
+                                          th:method="DELETE">
+                                        	<button type="submit"
+                                                class="btn btn-sm btn-danger">
+                                            	<i class="fa fa-trash">Delete</i>
+                                        	</button>
+                                    	</form>
+                                
+                                    	<a th:href="@{'/manufacturers/edit-form/{id}' (id=${man.getId()})}"
+                                       		class="btn btn-sm btn-info">
+                                        	<i class="fa fa-trash">Edit</i>
+                                    	</a>
+                        		</tr>
+                        </tbody>
+                    </table>
+                	</div>
+            	</div>
+            	<div class="col mbtml-3">
+                	<div class="row">
+                    	<div class="col-sm-12 col-md-12">
+                        	<a href="/manufacturers/add-form" class="btn btn-block btn-dark add-product-btn">
+                            	Add new manufacturer
+                        	</a>
+                    	</div>
+                	</div>
+            	</div>
+        	</div>
+    	</div>
     </div>
 </section>
