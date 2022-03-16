@@ -1,0 +1,83 @@
+<thblock xmlns:th="http://www.thymeleaf.org">
+	<div class="container">
+        <div class="row">
+            <div class="col-md-5">
+            	<form th:action="@{'/products/{id}' (id=${product?.id})}" method="POST">
+            		<div class="form-group">
+            			<label for="e1">Name</label>
+            			<input id="e1" 
+            				class="form-control"
+            				type="text" 
+            				name="name" 
+            				th:value="${product?.name}"
+            				required>
+            		</div>
+            		<div class="form-group">
+            			<label for="e2">Price</label>
+            			<input id="e2" 
+            				type="text" 
+            				class="form-control"
+            				name="price" 
+            				th:value="${product?.price}"
+            				required>
+            		</div>
+            		
+            		<div class="form-group">
+            			<label for="e3">Quantity</label>
+            			<input id="e3" 
+            				type="number" 
+            				class="form-control"
+            				name="quantity" 
+            				min="0" max="10"
+            				th:value="${product?.quantity}"
+            				required>
+            		</div>
+            		
+            		<div class="form-group">
+            		
+            			<label for="e4">Category</label>
+            			            			            				
+            			<div class="form-group">
+                       
+                        <select name="category" class="form-control">
+                            <option th:if="${product} != null"
+                                    th:selected="${product.getCategory() != null &&
+                                product.getCategory().getId() == cat.getId()}"
+                                    th:each="cat : ${categories}"
+                                    th:value="${cat.getId()}"
+                                    th:text="${cat.getName()}">
+                            </option>
+                            <option th:if="${product} == null"
+                                    th:each="cat : ${categories}"
+                                    th:value="${cat.getId()}"
+                                    th:text="${cat.getName()}">
+                            </option>
+                        </select>
+                        
+                    </div>
+            		
+            		<div class="form-group">
+                        <label>Manufacturer</label>
+                        <select name="manufacturer" class="form-control">
+                            <option th:if="${product} != null"
+                                    th:selected="${product.getManufacturer() != null && product.getManufacturer().getId() == man.getId()}"
+                                    th:each="man : ${manufacturers}"
+                                    th:value="${man.getId()}"
+                                    th:text="${man.getName()}">
+                            </option>
+                            <option th:if="${product} == null"
+                                    th:each="man : ${manufacturers}"
+                                    th:value="${man.getId()}"
+                                    th:text="${man.getName()}">
+                            </option>
+                        </select>
+                    </div>
+            		
+            
+            		
+            		<button id="submit" type="submit">Submit</button>
+            	</form>
+            </div>
+          </div>
+        </div>
+</thblock>
