@@ -63,7 +63,7 @@ public class ProductController {
 	@GetMapping("/edit-form/{id}")
 	public String editProductPage(@PathVariable Long id,Model model) {
 		
-		Product product = this.productService.findById(id).get();
+		Product product = this.productService.findById(id);
 		model.addAttribute("product", product);
 		model.addAttribute("manufacturers", manufacturerService.findAll());
 		model.addAttribute("categories", categoryService.findAll());

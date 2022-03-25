@@ -1,33 +1,33 @@
 <section class="jumbotron text-center" xmlns:th="http://www.thymeleaf.org">
     <div class="container">
         <h1 class="jumbotron-heading">Products Page</h1>
-        
+
         <div class="container mb-4">
-        	<div class="row">
-            	<div class="col-12" th:if="${products.size() > 0}">
-                	<div class="table-responsive">
-                    	<table class="table table-striped">
-                        	<thead>
-                        		<tr>
-                            		<th scope="col">Product</th>
-                            	    <th scope="col">Price</th>
-                            		<th scope="col">Quantity</th>
-                            		<th scope="col">Category</th>
-                            		<th scope="col">Manufacturer</th>
-                            		<th>Actions</th>
-                        		</tr>
-                        	</thead>
-                        	<tbody>
-                        		<tr th:each="product : ${products}">
-                            		<td th:text="${product.getName()}"></td>
-                            		<td th:text="${product.getPrice()}"></td>
-                            		<td th:text="${product.getQuantity()}"></td>
-                            		<td th:text="${product.getCategory().getName()}"></td>
-                            		<td th:text="${product.getManufacturer().getName()}"></td>
-                            		<td>
-                                    	<form th:action="@{'/products/delete/{id}' (id=${product.getId()})}"
+            <div class="row">
+                <div class="col-12" th:if="${products.size() > 0}">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Manufacturer</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="product : ${products}">
+                                <td th:text="${product.getName()}"></td>
+                                <td th:text="${product.getPrice()}"></td>
+                                <td th:text="${product.getQuantity()}"></td>
+                                <td th:text="${product.getCategory().getName()}"></td>
+                                <td th:text="${product.getManufacturer().getName()}"></td>
+                                <td>
+                                    <form th:action="@{'/products/delete/{id}' (id=${product.getId()})}"
                                           th:method="DELETE">
-                                        	<button type="submit"
+                                        <button type="submit"
                                                 class="btn btn-sm btn-danger">
                                             <i class="fa fa-trash">Delete</i>
                                         </button>

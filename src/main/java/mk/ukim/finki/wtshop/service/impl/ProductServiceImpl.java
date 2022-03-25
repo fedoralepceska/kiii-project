@@ -28,8 +28,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Optional<Product> findById(Long id) {
-		return this.productRepository.findById(id);
+	public Product findById(Long id) {
+		return this.productRepository.findById(id).orElseThrow(RuntimeException::new);
 	}
 
 	@Override
