@@ -29,29 +29,34 @@
                                           th:method="DELETE">
                                         	<button type="submit"
                                                 class="btn btn-sm btn-danger">
-                                            	<i class="fa fa-trash">Delete</i>
-                                        	</button>
-                                    	</form>
-                                
-                                    	<a th:href="@{'/products/edit-form/{id}' (id=${product.getId()})}"
-                                       		class="btn btn-sm btn-info">
-                                        	<i class="fa fa-trash">Edit</i>
-                                    	</a>
-                        		</tr>
-                        </tbody>
-                    </table>
-                	</div>
-            	</div>
-            	<div class="col mbtml-3">
-                	<div class="row">
-                    	<div class="col-sm-12 col-md-12">
-                        	<a href="/products/add-form" class="btn btn-block btn-dark add-product-btn">
-                            	Add new product
-                        	</a>
-                    	</div>
-                	</div>
-            	</div>
-        	</div>
-    	</div>
+                                            <i class="fa fa-trash">Delete</i>
+                                        </button>
+                                    </form>
+
+                                    <a th:href="@{'/products/edit-form/{id}' (id=${product.getId()})}"
+                                       class="btn btn-sm btn-info">
+                                        <i class="fa fa-trash">Edit</i>
+                                    </a>
+                                    <form th:method="POST" th:action="@{'/shopping-cart/add/{productId}' (productId=${product.getId()})}">
+                                        <button th:type="submit" class="btn btn-sm btn-success">
+                                            <i class="fa fa-trash">Add to Cart</i>
+                                        </button>
+                                    </form>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col mbtml-3">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <a href="/products/add-form" class="btn btn-block btn-dark add-product-btn">
+                                Add new product
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>

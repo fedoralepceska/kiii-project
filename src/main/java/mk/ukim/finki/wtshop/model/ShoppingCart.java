@@ -19,7 +19,6 @@ public class ShoppingCart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
 	@ManyToMany
 	private List<Product> products;
 
